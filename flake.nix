@@ -11,7 +11,7 @@
 
     catppuccin.url = "github:catppuccin/nix";
 
-    affinity-nix.url = "github:mrshmllow/affinity-nix";
+    #affinity-nix.url = "github:mrshmllow/affinity-nix";
 
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
