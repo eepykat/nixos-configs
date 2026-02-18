@@ -1,0 +1,43 @@
+{ config, lib, pkgs, modulesPath, inputs, ... }:
+{
+    environment.systemPackages = with pkgs; [
+        obsidian
+        niri
+        git
+        hyfetch
+        fastfetch
+        btop
+        wget
+        curl
+        librewolf
+        vscode
+        xwayland-satellite
+        mako
+        gnome-keyring
+        xdg-desktop-portal-gtk
+        xdg-desktop-portal-gnome
+        fuzzel
+        kdePackages.polkit-kde-agent-1
+        xdg-utils
+        nautilus
+        inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
+        supersonic-wayland
+        vesktop
+        fractal
+        mumble
+        bitwarden-desktop
+        inputs.affinity-nix.packages.x86_64-linux.v3
+        blender
+        blockbench
+        prismlauncher
+        vlc
+        handbrake
+        #makemkv
+        obs-studio
+        losslesscut-bin
+        #davinci-resolve
+        remmina
+        syncthing
+        ungoogled-chromium
+    ];
+}
