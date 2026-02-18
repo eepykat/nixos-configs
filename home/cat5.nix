@@ -1,7 +1,7 @@
 { pkgs, inputs, lib, ... }: {
   # Required Home Manager settings
-  home.username = "cat5";
-  home.homeDirectory = lib.mkForce "/home/cat5";
+  home.username = "kat5";
+  home.homeDirectory = lib.mkForce "/home/kat5";
 
 
   home.stateVersion = "24.11";

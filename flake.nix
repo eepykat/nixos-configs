@@ -53,9 +53,9 @@
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
             home-manager.extraSpecialArgs = { inherit inputs; };
-            home-manager.users.cat5 = {
+            home-manager.users.kat5 = {
               imports = [
-                ./home/cat5.nix
+                ./home/kat5.nix
             ];
           };
         }

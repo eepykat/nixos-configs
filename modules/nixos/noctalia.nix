@@ -6,7 +6,7 @@
     # ... maybe other stuff
   ];
 
-  home-manager.users.cat5 = {
+  home-manager.users.kat5 = {
     # import the home manager module
     imports = [
       inputs.noctalia.homeModules.default

@@ -178,7 +178,7 @@
     ]
   },
   "general": {
-    "avatarImage": "/etc/nixos/assets/cat5.jpg",
+    "avatarImage": "/etc/nixos/assets/kat5.jpg",
     "dimmerOpacity": 0.65,
     "showScreenCorners": true,
     "forceBlackScreenCorners": true,
@@ -280,7 +280,7 @@
   "wallpaper": {
     "enabled": true,
     "overviewEnabled": true,
-    "directory": "/home/cat5/Pictures/Wallpapers",
+    "directory": "/home/kat5/Pictures/Wallpapers",
     "monitorDirectories": [],
     "enableMultiMonitorDirectories": false,
     "showHiddenFiles": false,
