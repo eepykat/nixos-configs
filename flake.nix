@@ -34,9 +34,9 @@
       specialArgs = { inherit inputs; };
 
       modules = [
+          home-manager.nixosModules.home-manager
           ./default.nix
           niri.nixosModules.niri
-          home-manager.nixosModules.home-manager 
 
           {
             nixpkgs.overlays = [ inputs.millennium.overlays.default ];
