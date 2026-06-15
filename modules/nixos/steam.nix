@@ -4,10 +4,9 @@
     programs.steam = {
         enable = true;
         package = {
-            pkgs.millennium-steam;
-            pkgs.steam.override {
+            pkgs.millennium-steam {
                 extraArgs = "-system-composer";
-            };
+            }
         } 
     };
 }
