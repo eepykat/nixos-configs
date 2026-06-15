@@ -23,5 +23,6 @@
       ./modules/nixos/starship.nix
       ./modules/nixos/misc.nix
       ./hosts/users.nix
+      ./modules/nixos/podman.nix
     ];
 }

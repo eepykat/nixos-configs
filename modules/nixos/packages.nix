@@ -3,9 +3,7 @@
     environment.systemPackages = with pkgs; [
         obsidian
         niri
-
         polkit_gnome
-
         gparted
         ntfs3g
         exfatprogs
@@ -16,7 +14,6 @@
         f2fs-tools
         jfsutils
         localsend
-
         hyfetch
         fastfetch
         btop
@@ -52,5 +49,6 @@
         remmina
         syncthing
         ungoogled-chromium
+        bluebubbles
     ];
 }

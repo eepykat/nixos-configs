@@ -1,6 +1,8 @@
 { config, pkgs, ... }:
 {
-    time.timeZone = "America/Los_Angeles";
+  # Time Zones
+    time.timeZone = "Europe/Vilnius"; # Lithuania Time
+    #time.timeZone = "America/Los_Angeles"; # California Time
 
     nixpkgs.config.allowUnfree = true;
     security.polkit.enable = true;
