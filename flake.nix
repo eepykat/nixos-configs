@@ -35,7 +35,7 @@
 
       modules = [
           home-manager.nixosModules.home-manager
-          ./default.nix
+          ./hosts/t480s/configuration.nix
           niri.nixosModules.niri
 
           {
@@ -54,6 +54,21 @@
                 ./home/kat5.nix
               ];
             };
+          }
+        ];
+      };
+
+    nixosConfigurations."generic-server" = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      specialArgs = { inherit inputs; };
+
+      modules = [
+          ./hosts/server/configuration.nix
+          {
+            nixpkgs.overlays = [ inputs.millennium.overlays.default ];
+            nixpkgs.config.permittedInsecurePackages = [
+              "electron-39.8.10"
+            ];
           }
         ];
       };

@@ -36,16 +36,13 @@
         fractal
         mumble
         bitwarden-desktop
-        #inputs.affinity-nix.packages.x86_64-linux.v3
         blender
         blockbench
         prismlauncher
         vlc
         handbrake
-        #makemkv
         obs-studio
         losslesscut-bin
-        #davinci-resolve
         remmina
         syncthing
         ungoogled-chromium

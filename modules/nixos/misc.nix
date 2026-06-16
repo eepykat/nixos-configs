@@ -1,8 +1,7 @@
 { config, pkgs, ... }:
 {
-  # Time Zones
+    # Generic system settings
     time.timeZone = "Europe/Vilnius"; # Lithuania Time
-    #time.timeZone = "America/Los_Angeles"; # California Time
 
     nixpkgs.config.allowUnfree = true;
     security.polkit.enable = true;
@@ -22,29 +21,4 @@
         LC_TELEPHONE = "en_US.UTF-8";
         LC_TIME = "en_US.UTF-8";
     };
-
-    security.pam.services.swaylock = {};
-
-    # Portals
-    xdg.portal = {
-        enable = true;
-        extraPortals = [ pkgs.xdg-desktop-portal-gnome pkgs.xdg-desktop-portal-gtk ];
-        config.common.default = [ "gnome" ];
-    };
-    services.gnome.gnome-keyring.enable = true;
-    security.pam.services.greetd.enableGnomeKeyring = true;
-
-    environment.sessionVariables = {
-        NIXOS_OZONE_WL = "1";
-        XDG_CURRENT_DESKTOP = "niri";
-        XDG_SESSION_TYPE = "wayland";
-    };
-    
-    services.gvfs.enable = true;
-    services.dbus.packages = [ pkgs.nautilus pkgs.gcr ];
-
-    services.xserver.xkb = {
-        layout = "us";
-        variant = "";
-    };  
 }

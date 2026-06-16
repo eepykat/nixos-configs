@@ -47,7 +47,6 @@
   };
 
   imports = [
-    ../modules/nixos/niri.nix
     inputs.catppuccin.homeModules.catppuccin 
  ];
 }
