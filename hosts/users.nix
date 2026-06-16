@@ -5,7 +5,7 @@
     isNormalUser = true;
     description = "Katarina";
     group = "kat5";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [ "networkmanager" "wheel" "podman" ];
     packages = with pkgs; [];
   };
 }
