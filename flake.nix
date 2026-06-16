@@ -36,6 +36,7 @@
       modules = [
           home-manager.nixosModules.home-manager
           niri.nixosModules.niri
+          ./default.nix
           ./hosts/t480s/configuration.nix
 
           {
@@ -63,6 +64,7 @@
       specialArgs = { inherit inputs; };
 
       modules = [
+          ./default.nix
           ./hosts/server/configuration.nix
           {
             nixpkgs.overlays = [ inputs.millennium.overlays.default ];

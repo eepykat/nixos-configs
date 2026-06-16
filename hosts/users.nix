@@ -8,5 +8,5 @@
     extraGroups = [ "networkmanager" "wheel" "podman" ];
     packages = with pkgs; [];
   };
-  users.users.groups.kat5 = {};
+  users.groups.kat5 = {};
 }
