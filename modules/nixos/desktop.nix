@@ -7,7 +7,6 @@
     ./steam.nix
     ./fonts.nix
     ./starship.nix
-    ./kanshi.nix
     ./packages-desktop.nix
   ];
 
