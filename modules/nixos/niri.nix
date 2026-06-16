@@ -6,8 +6,8 @@ let
   ] ++ (lib.splitString " " cmd);
 in
 {
-  niri.enable = true;
-  niri.settings = {
+  programs.niri.enable = true;
+  programs.niri.settings = {
     spawn-at-startup = [
       { command = [ "noctalia-shell" ]; }
     ];
