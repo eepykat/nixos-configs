@@ -35,8 +35,8 @@
 
       modules = [
           home-manager.nixosModules.home-manager
-          ./hosts/t480s/configuration.nix
           niri.nixosModules.niri
+          ./hosts/t480s/configuration.nix
 
           {
             nixpkgs.overlays = [ inputs.millennium.overlays.default ];
