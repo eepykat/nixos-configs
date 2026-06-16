@@ -4,6 +4,8 @@ let
   noctalia = cmd: [
     "noctalia-shell" "ipc" "call"
   ] ++ (lib.splitString " " cmd);
+  
+  actions = config.lib.niri.actions;
 in
 {
   programs.niri.settings = {
@@ -11,21 +13,19 @@ in
       { command = [ "noctalia-shell" ]; }
     ];
 
-    binds = with config.lib.niri.actions; {
-      # Spawn using the helper
-      "Mod+Space".action.spawn = noctalia "launcher toggle";
-      "Mod+T".action.spawn = [ "kitty" ];
-      "Mod+L".action.spawn = noctalia "lockScreen lock";
+    binds = {
+      "Mod+Space".action = actions.spawn noctalia "launcher toggle";
+      "Mod+T".action = actions.spawn [ "kitty" ];
+      "Mod+L".action = actions.spawn noctalia "lockScreen lock";
 
-      # Window & Workspace Actions
-      "Mod+Q".action.close-window = { };
-      "Print".action.screenshot-window = { };
-      "Mod+Escape".action.toggle-keyboard-shortcuts-inhibit = { };
-      "Mod+Shift+Q".action.quit = { }; 
-      "Mod+Left".action.focus-column-left = { };
-      "Mod+Right".action.focus-column-right = { };      
-      "Mod+Down".action.focus-workspace-down = { };
-      "Mod+Up".action.focus-workspace-up = { };
+      "Mod+Q".action = actions.close-window { };
+      "Print".action = actions.screenshot-window { };
+      "Mod+Escape".action = actions.toggle-keyboard-shortcuts-inhibit { };
+      "Mod+Shift+Q".action = actions.quit { }; 
+      "Mod+Left".action = actions.focus-column-left { };
+      "Mod+Right".action = actions.focus-column-right { };      
+      "Mod+Down".action = actions.focus-workspace-down { };
+      "Mod+Up".action = actions.focus-workspace-up { };
     };
 
     input = {
@@ -38,7 +38,7 @@ in
         scroll-method = "two-finger";
         disabled-on-external-mouse = true;
       };
-      warp-mouse-to-focus.enable = true;
+      warp-mouse-to-focus = true;
     };
   };
 }
