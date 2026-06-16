@@ -6,9 +6,10 @@
   home.stateVersion = "24.11";
 
   imports = [
-    inputs.catppuccin.homeModules.catppuccin 
+    inputs.catppuccin.homeModules.catppuccin
+    inputs.niri.homeModules.niri
   ];
-  niri = {
+  programs.niri = {
     enable = true;
     settings = {
       spawn-at-startup = [

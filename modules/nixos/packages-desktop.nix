@@ -3,6 +3,7 @@
     environment.systemPackages = with pkgs; [
         obsidian
         polkit_gnome
+        niri
         gparted
         ntfs3g
         exfatprogs
