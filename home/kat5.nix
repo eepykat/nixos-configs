@@ -48,5 +48,6 @@
 
   imports = [
     inputs.catppuccin.homeModules.catppuccin 
+    ./niri.nix
  ];
 }
