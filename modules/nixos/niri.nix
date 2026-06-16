@@ -6,11 +6,15 @@ let
   ] ++ (lib.splitString " " cmd);
 in
 {
-
+  niri.enable = true;
   niri.settings = {
     spawn-at-startup = [
       { command = [ "noctalia-shell" ]; }
     ];
+    
+    layout = {
+      gaps = 16;
+    };
 
     binds = with config.niri.lib.actions; {
       "Mod+Space".action.spawn = noctalia "launcher toggle";

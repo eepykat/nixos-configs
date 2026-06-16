@@ -10,19 +10,6 @@
     ../modules/nixos/niri.nix
   ];
 
-  programs.niri = {
-    enable = true;
-    settings = {
-      input = {
-        keyboard.xkb.layout = "us";
-        touchpad.tap = true;
-      };
-      layout = {
-        gaps = 16;
-      };
-    };
-  };
-
   services.kanshi = {
     enable = true;
     systemdTarget = "niri.service"; 
