@@ -1,10 +1,48 @@
-{ pkgs, inputs, lib, ... }: {
+{ pkgs, inputs, lib, config, ... }: {
   # Required Home Manager settings
   home.username = "kat5";
   home.homeDirectory = lib.mkForce "/home/kat5";
 
-
   home.stateVersion = "24.11";
+
+  imports = [
+    inputs.catppuccin.homeModules.catppuccin 
+    inputs.niri.homeModules.niri
+    ../modules/nixos/niri.nix
+  ];
+
+  programs.niri = {
+    enable = true;
+    settings = {
+      input = {
+        keyboard.xkb.layout = "us";
+        touchpad.tap = true;
+      };
+      layout = {
+        gaps = 16;
+      };
+    };
+  };
+
+  services.kanshi = {
+    enable = true;
+    systemdTarget = "niri.service"; 
+    settings = [
+      {
+        profile.name = "undocked";
+        profile.outputs = [
+          { criteria = "eDP-1"; status = "enable"; }
+        ];
+      }
+      {
+        profile.name = "docked";
+        profile.outputs = [
+          { criteria = "eDP-1"; status = "disable"; }
+          { criteria = "DP-3"; status = "enable"; mode = "1920x1080@144"; }
+        ];
+      }
+    ];
+  };
 
   # Your Starship Configuration
   programs.starship = {
@@ -16,6 +54,7 @@
       scan_timeout = 50;
     };
   };
+
   catppuccin.autoEnable = true;
   catppuccin.enable = true;
   catppuccin.starship.enable = true;
@@ -38,17 +77,11 @@
     };
   };
 
-
   programs.kitty = {
     enable = true;
     font = {
-      name = "JetBrainsMono Nerd Font"; # Case sensitive
+      name = "JetBrainsMono Nerd Font";
       size = 11;
     };
   };
-
-  imports = [
-    inputs.catppuccin.homeModules.catppuccin 
-    ../modules/nixos/niri.nix
- ];
 }

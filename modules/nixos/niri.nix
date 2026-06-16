@@ -13,13 +13,11 @@ in
       { command = [ "noctalia-shell" ]; }
     ];
 
-    binds = with config.lib.niri.actions; {
-      # Spawn using the helper
+    binds = with config.niri.lib.actions; {
       "Mod+Space".action.spawn = noctalia "launcher toggle";
       "Mod+T".action.spawn = [ "kitty" ];
-      "Mod+L".action.spawn = noctalia "lockScreen lock";
+      "Mod+L".action.spawn = [ "noctalia-shell" "lock" ];
 
-      # Window & Workspace Actions
       "Mod+Q".action.close-window = { };
       "Print".action.screenshot-window = { };
       "Mod+Escape".action.toggle-keyboard-shortcuts-inhibit = { };
