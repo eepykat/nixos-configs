@@ -35,7 +35,6 @@
 
       modules = [
           home-manager.nixosModules.home-manager
-          niri.nixosModules.niri
           ./default.nix
           ./hosts/t480s/configuration.nix
 
