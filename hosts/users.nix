@@ -1,4 +1,3 @@
-
 { config, pkgs, ... }:
 {
   users.users.kat5 = {
@@ -9,7 +8,5 @@
     extraGroups = [ "networkmanager" "wheel" "podman" ];
     packages = with pkgs; [];
   };
-
-  users.groups.kat5 = {};
-  
+  users.users.groups.kat5 = {};
 }
