@@ -8,7 +8,7 @@
   imports = [
     inputs.catppuccin.homeModules.catppuccin 
   ];
-  programs.niri = {
+  niri = {
     enable = true;
     settings = {
       spawn-at-startup = [
