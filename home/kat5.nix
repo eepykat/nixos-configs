@@ -16,6 +16,7 @@
       scan_timeout = 50;
     };
   };
+  catppuccin.autoEnable = true;
   catppuccin.enable = true;
   catppuccin.starship.enable = true;
   catppuccin.starship.flavor = "mocha";
