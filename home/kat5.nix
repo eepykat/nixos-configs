@@ -7,7 +7,6 @@
 
   imports = [
     inputs.catppuccin.homeModules.catppuccin 
-    inputs.niri.homeModules.niri
     ../modules/nixos/niri.nix
   ];
 
