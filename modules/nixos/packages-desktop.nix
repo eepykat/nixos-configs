@@ -2,7 +2,6 @@
 {
     environment.systemPackages = with pkgs; [
         obsidian
-        niri
         polkit_gnome
         gparted
         ntfs3g

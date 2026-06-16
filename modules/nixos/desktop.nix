@@ -3,7 +3,6 @@
   imports = [
     ./common.nix
     ./greetd.nix
-    ./niri.nix
     ./noctalia.nix
     ./steam.nix
     ./fonts.nix
