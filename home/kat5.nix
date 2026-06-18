@@ -1,10 +1,11 @@
-{ lib, ... }: {
+{ lib, inputs, ... }: {
   # Required Home Manager settings
   home.username = "kat5";
   home.homeDirectory = lib.mkForce "/home/kat5";
 
   home.stateVersion = "24.11";
 
+  _module.args = { inherit inputs; }; 
   imports = [
     ../modules/home/catppuccin.nix
     ../modules/home/niri.nix
