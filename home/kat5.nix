@@ -12,5 +12,6 @@
     ../modules/home/shell.nix
     ../modules/home/swaylock.nix
     ../modules/home/kitty.nix
+    ../modules/home/noctalia.nix
   ];
 }
