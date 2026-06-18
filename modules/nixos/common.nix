@@ -6,13 +6,12 @@
   imports =
     [
       ./boot.nix
-      ./fonts.nix
       ./git.nix
       ./packages-common.nix
       ./sound.nix
       ./ssh.nix
-      ./starship.nix
-      ./misc.nix
+      ./shell.nix
+      ./networking.nix
       ./podman.nix
     ];
 }

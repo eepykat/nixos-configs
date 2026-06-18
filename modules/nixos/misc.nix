@@ -3,7 +3,6 @@
     # Generic system settings
     time.timeZone = "Europe/Vilnius"; # Lithuania Time
 
-    nixpkgs.config.allowUnfree = true;
     security.polkit.enable = true;
     nix.settings.experimental-features = [ "nix-command" ];
 

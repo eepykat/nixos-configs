@@ -6,7 +6,6 @@
 
   imports =
     [
-      ./modules/nixos/common.nix
       ./hosts/users.nix
     ];
 }

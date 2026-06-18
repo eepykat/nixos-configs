@@ -5,8 +5,6 @@
     ./greetd.nix
     ./noctalia.nix
     ./steam.nix
-    ./fonts.nix
-    ./starship.nix
     ./packages-desktop.nix
   ];
 
