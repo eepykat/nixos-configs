@@ -17,15 +17,15 @@
   #VPN
   networking.wg-quick.interfaces = {
     home = {
-      configFile = "/etc/nixos/wireguard/home.conf";
+      configFile = "/home/kat5/.wireguard/home.conf";
       autostart = false;
     };
     lithuania = {
-      configFile = "/etc/nixos/wireguard/lithuania.conf";
+      configFile = "/home/kat5/.wireguard/lithuania.conf";
       autostart = true;
     };
     iceland = {
-      configFile = "/etc/nixos/wireguard/iceland.conf";
+      configFile = "/home/kat5/.wireguard/iceland.conf";
       autostart = false;
     };
   };
