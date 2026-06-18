@@ -3,7 +3,6 @@
   imports = [
     ./common.nix
     ./greetd.nix
-    ./noctalia.nix
     ./steam.nix
     ./packages-desktop.nix
   ];
