@@ -2,7 +2,7 @@
 let
   userImports = [ inputs.noctalia.homeModules.default ];
   userSettings = {
-    programs.noctalia = {
+    programs.noctalia-shell = {
       enable = true;
       settings = builtins.fromJSON (builtins.readFile ./noctalia-settings.json);
     };
