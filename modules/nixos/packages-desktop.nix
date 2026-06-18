@@ -19,7 +19,6 @@
         btop
         wget
         curl
-        librewolf
         vscode
         xwayland-satellite
         mako
