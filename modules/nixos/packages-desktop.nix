@@ -1,6 +1,7 @@
 { config, lib, pkgs, modulesPath, inputs, ... }:
 {
     environment.systemPackages = with pkgs; [
+        niri
         obsidian
         polkit_gnome
         gparted
