@@ -13,15 +13,17 @@
   networking.networkmanager.enable = true;
 
   # Cellular
-  services.modemmanager.enable = true;
-  services.xmm7360 = {
-    enable = true;
-    autoStart = true;
-    package = config.boot.kernelPackages.xmm7360-pci;
-    config.mycard = {
-      apn = "internet.tele2.lt";
-      nodefaultroute = true;
-      noresolv = true;
+  networking.modemmanager.enable = true;
+  netkit = {
+    services.xmm7360 = {
+      enable = true;
+      autoStart = true;
+      package = config.boot.kernelPackages.xmm7360-pci;
+      config.mycard = {
+        apn = "internet.tele2.lt";
+        nodefaultroute = true;
+        noresolv = true;
+      };
     };
   };
   systemd.services.xmm7360 = {
@@ -37,6 +39,9 @@
       RestrictRealtime = true;
     };
   };
+
+
+# Firewall
   networking.firewall = {
     enable = true;
 
