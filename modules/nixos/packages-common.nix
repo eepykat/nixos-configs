@@ -5,5 +5,6 @@
     curl
     btop
     usbutils
+    pciutils
   ];
 }
