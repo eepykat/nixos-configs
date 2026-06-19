@@ -14,31 +14,31 @@
 
   # Cellular
   networking.modemmanager.enable = true;
-  netkit = {
-    xmm7360 = {
-      enable = true;
-      autoStart = true;
-      package = config.boot.kernelPackages.xmm7360-pci;
-      config.mycard = {
-        apn = "internet.tele2.lt";
-        nodefaultroute = true;
-        noresolv = true;
-      };
-    };
-  };
-  systemd.services.xmm7360 = {
-    serviceConfig = {
-      RestrictAddressFamilies = [ "AF_INET" "AF_INET6" "AF_NETLINK" "AF_PACKET" ];
-      ProtectSystem = "true";
-      ProtectHome = true;
-      PrivateTmp = true;
-      PrivateDevices = false;
-      NoNewPrivileges = true;
-      ProtectControlGroups = true;
-      ProtectKernelModules = true;
-      RestrictRealtime = true;
-    };
-  };
+#  netkit = {
+#    xmm7360 = {
+#      enable = true;
+#      autoStart = true;
+#      package = config.boot.kernelPackages.xmm7360-pci;
+#      config.mycard = {
+#        apn = "internet.tele2.lt";
+#        nodefaultroute = true;
+#        noresolv = true;
+#      };
+#    };
+#  };
+#  systemd.services.xmm7360 = {
+#    serviceConfig = {
+#      RestrictAddressFamilies = [ "AF_INET" "AF_INET6" "AF_NETLINK" "AF_PACKET" ];
+#      ProtectSystem = "true";
+#      ProtectHome = true;
+#      PrivateTmp = true;
+#      PrivateDevices = false;
+#      NoNewPrivileges = true;
+#      ProtectControlGroups = true;
+#      ProtectKernelModules = true;
+#      RestrictRealtime = true;
+#    };
+#  };
 
 
 # Firewall
