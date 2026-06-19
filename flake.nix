@@ -34,6 +34,7 @@
     millennium,
     zen-browser,
     noctalia,
+    std,
     netkit,
   } @inputs:
 
