@@ -4,5 +4,6 @@
     wget
     curl
     btop
+    usbutils
   ];
 }
