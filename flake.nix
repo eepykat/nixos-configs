@@ -23,7 +23,7 @@
 #      url = "github:icebox-nix/netkit.nix/29f750af4fabee7b8eccb5ab00df7074b73c7658";
 #      inputs.nixpkgs.follows = "nixpkgs";
 #    };
-#  };
+  };
 
   outputs = {
     self,
