@@ -45,7 +45,7 @@
           home-manager.nixosModules.home-manager
           ./default.nix
           ./hosts/t480s/configuration.nix
-          inputs.netkit.nixosModule.xmm7360
+          inputs.netkit.nixosModule
           {
             nixpkgs.overlays = [ inputs.millennium.overlays.default ];
             nixpkgs.config.permittedInsecurePackages = [
