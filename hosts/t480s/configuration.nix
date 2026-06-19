@@ -15,7 +15,7 @@
   # Cellular
   networking.modemmanager.enable = true;
   netkit = {
-    services.xmm7360 = {
+    xmm7360 = {
       enable = true;
       autoStart = true;
       package = config.boot.kernelPackages.xmm7360-pci;
