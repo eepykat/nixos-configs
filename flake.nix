@@ -15,6 +15,10 @@
       url = "github:noctalia-dev/noctalia/legacy-v4";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    netkit = {
+      url = "github:icebox-nix/netkit.nix/29f750af4fabee7b8eccb5ab00df7074b73c7658";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
@@ -26,9 +30,13 @@
     millennium,
     zen-browser,
     noctalia,
+    netkit,
   } @inputs:
 
   {
+#--------------
+# - Think Pad -
+# -------------
     nixosConfigurations."kat-t480s" = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
@@ -37,14 +45,13 @@
           home-manager.nixosModules.home-manager
           ./default.nix
           ./hosts/t480s/configuration.nix
-
+          inputs.netkit.nixosModules.xmm7360
           {
             nixpkgs.overlays = [ inputs.millennium.overlays.default ];
             nixpkgs.config.permittedInsecurePackages = [
               "electron-39.8.10"
             ];
           }
-
           {
             home-manager.useGlobalPkgs = true;
             home-manager.useUserPackages = true;
@@ -57,7 +64,9 @@
           }
         ];
       };
-
+#------------------
+# - Server Config -
+# -----------------
     nixosConfigurations."generic-server" = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       specialArgs = { inherit inputs; };
@@ -72,6 +81,9 @@
             ];
           }
         ];
-      };
     };
-  }
+
+
+  };
+
+}
