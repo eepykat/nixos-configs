@@ -7,20 +7,17 @@
     home-manager.url = "github:nix-community/home-manager";
     catppuccin.url = "github:catppuccin/nix";
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
+    std.url = "github:icebox-nix/std";
+    netkit.url = "github:icebox-nix/netkit.nix";
+    iceberg.url = "github:icebox-nix/iceberg";
+
+
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     noctalia = {
       url = "github:noctalia-dev/noctalia/legacy-v4";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    std = {
-      url = "github:icebox-nix/std";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    netkit = {
-      url = "github:icebox-nix/netkit.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -34,8 +31,9 @@
     millennium,
     zen-browser,
     noctalia,
-    netkit,
     std,
+    netkit,
+    iceberg,
   } @inputs:
 
   {
