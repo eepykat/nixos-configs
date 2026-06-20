@@ -15,14 +15,6 @@
       url = "github:noctalia-dev/noctalia/legacy-v4";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-#    std = {
-#      url = "github:icebox-nix/std/86d9e8966205afdb940abf46f1f9cff6d03a3f5c";
-#      inputs.nixpkgs.follows = "nixpkgs";
-#    };
-#    netkit = {
-#      url = "github:icebox-nix/netkit.nix/29f750af4fabee7b8eccb5ab00df7074b73c7658";
-#      inputs.nixpkgs.follows = "nixpkgs";
-#    };
   };
 
   outputs = {
@@ -34,8 +26,6 @@
     millennium,
     zen-browser,
     noctalia,
-    #std,
-    #netkit,
   } @inputs:
 
   {
@@ -50,8 +40,6 @@
           home-manager.nixosModules.home-manager
           ./default.nix
           ./hosts/t480s/configuration.nix
-          #inputs.std.nixosModule
-          #inputs.netkit.nixosModule
           {
             nixpkgs.overlays = [ inputs.millennium.overlays.default ];
             nixpkgs.config.permittedInsecurePackages = [
