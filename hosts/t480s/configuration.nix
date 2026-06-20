@@ -23,7 +23,7 @@
     xmm7360 = {
       enable = true;
       autoStart = true;
-      package = config.boot.kernelPackages.xmm7360-pci;
+      package = pkgs.xmm7360-pci_5_7;
       config = {
         mycard = {
           apn = "internet.tele2.lt";
