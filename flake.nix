@@ -7,10 +7,7 @@
     home-manager.url = "github:nix-community/home-manager";
     catppuccin.url = "github:catppuccin/nix";
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
-    std.url = "github:icebox-nix/std";
     netkit.url = "github:icebox-nix/netkit.nix";
-    iceberg.url = "github:icebox-nix/iceberg";
-
 
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
@@ -31,9 +28,7 @@
     millennium,
     zen-browser,
     noctalia,
-    std,
     netkit,
-    iceberg,
   } @inputs:
 
   {
@@ -48,21 +43,10 @@
           home-manager.nixosModules.home-manager
           ./default.nix
           ./hosts/t480s/configuration.nix
-          inputs.std.nixosModule
-          inputs.netkit.nixosModule
-
+          netkit.nixosModule
           {
             nixpkgs.overlays = [ 
               inputs.millennium.overlays.default
-              iceberg.overlay
-              (final: prev: {
-                python3 = prev.python3.override {
-                  packageOverrides = hFinal: hPrev: {
-                    ConfigArgParse = hFinal.configargparse;
-                  };
-                };
-                python3Packages = final.python3.pkgs;
-              })
             ];
             nixpkgs.config.permittedInsecurePackages = [
               "electron-39.8.10"
