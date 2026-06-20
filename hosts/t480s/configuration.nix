@@ -8,6 +8,11 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
+  boot.kernelModules = [ "iosm" ];
+  boot.kernelParams = [ "iosm.bcl_mode=1" "intel_iommu=on" "iommu=pt" ];
+  boot.localCommands = ''
+    echo "8086 7360" > /sys/bus/pci/drivers/iosm/new_id || true
+  '';
 
   networking.hostName = "kat-t480s";
   networking.networkmanager.enable = true;
