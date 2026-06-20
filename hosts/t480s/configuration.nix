@@ -10,8 +10,8 @@
   boot.loader.efi.efiSysMountPoint = "/boot";
   boot.kernelModules = [ "iosm" ];
   boot.kernelParams = [ "iosm.bcl_mode=1" "intel_iommu=on" "iommu=pt" ];
-  boot.localCommands = ''
-    echo "8086 7360" > /sys/bus/pci/drivers/iosm/new_id || true
+  services.udev.extraRules = ''
+    ACTION=="add", SUBSYSTEM=="pci", ATTR{vendor}=="0x8086", ATTR{device}=="0x7360", RUN+="${pkgs.bash}/bin/bash -c 'echo 0x8086 0x7360 > /sys/bus/pci/drivers/iosm/new_id'"
   '';
 
   networking.hostName = "kat-t480s";
@@ -38,7 +38,7 @@
     };
     lithuania = {
       configFile = "/home/kat5/.wireguard/lithuania.conf";
-      autostart = true;
+      autostart = false;
     };
     iceland = {
       configFile = "/home/kat5/.wireguard/iceland.conf";
