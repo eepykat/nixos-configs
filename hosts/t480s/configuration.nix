@@ -27,13 +27,12 @@
     xmm7360 = {
       enable = true;
       autoStart = true;
-      config = {
-        mycard = {
-          apn = "internet.tele2.lt";
-          nodefaultroute = false;
-          noresolv = true;
-        };
-      };
+      config = ''
+        [mycard]
+        apn = internet.tele2.lt
+        nodefaultroute = false
+        noresolv = true
+      '';
       package = pkgs.netkit.xmm7360-pci_latest;
     };
   };
