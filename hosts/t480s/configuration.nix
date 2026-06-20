@@ -8,6 +8,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.loader.efi.efiSysMountPoint = "/boot";
+
+
+  
   boot.kernelModules = [ "iosm" ];
   boot.kernelParams = [ "iosm.bcl_mode=1" "intel_iommu=on" "iommu=pt" ];
   services.udev.extraRules = ''
@@ -19,6 +22,21 @@
 
   # Cellular
   networking.modemmanager.enable = true;
+
+  netkit = {
+    xmm7360 = {
+      enable = true;
+      autoStart = true;
+      config = {
+        mycard = {
+          apn = "internet.tele2.lt";
+          nodefaultroute = false;
+          noresolv = true;
+        };
+      };
+      package = pkgs.netkit.xmm7360-pci_latest;
+    };
+  };
 
 # Firewall
   networking.firewall = {
