@@ -16,11 +16,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     std = {
-      url = "github:icebox-nix/std/86d9e8966205afdb940abf46f1f9cff6d03a3f5c";
+      url = "github:icebox-nix/std";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     netkit = {
-      url = "github:icebox-nix/netkit.nix/29f750af4fabee7b8eccb5ab00df7074b73c7658";
+      url = "github:icebox-nix/netkit.nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
