@@ -23,12 +23,6 @@
     xmm7360 = {
       enable = true;
       autoStart = true;
-      package = (config.boot.kernelPackages.xmm7360-pci.overrideAttrs (oldAttrs: {
-        preConfigure = ''
-          sed -i '/Support for the XMM7360/d' module.nix 2>/dev/null || true
-          sed -i '/mainline kernel version/d' module.nix 2>/dev/null || true
-        '';
-      }));
       config = {
         mycard = {
           apn = "internet.tele2.lt";
@@ -36,6 +30,7 @@
           noresolv = true;
         };
       };
+      package = pkgs.xmm7360-pci_latest;
     };
   };
 # Firewall
