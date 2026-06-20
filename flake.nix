@@ -7,6 +7,7 @@
     home-manager.url = "github:nix-community/home-manager";
     catppuccin.url = "github:catppuccin/nix";
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
+    std.url = "github:icebox-nix/std";
     netkit.url = "github:icebox-nix/netkit.nix";
 
     zen-browser = {
@@ -28,6 +29,7 @@
     millennium,
     zen-browser,
     noctalia,
+    std,
     netkit,
   } @inputs:
 
@@ -43,6 +45,7 @@
           home-manager.nixosModules.home-manager
           ./default.nix
           ./hosts/t480s/configuration.nix
+          std.nixosModule
           netkit.nixosModule
           {
             nixpkgs.overlays = [ 
