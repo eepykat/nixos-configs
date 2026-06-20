@@ -30,7 +30,7 @@
           noresolv = true;
         };
       };
-      package = pkgs.xmm7360-pci_latest;
+      package = pkgs.netkit.xmm7360-pci_latest;
     };
   };
 # Firewall
