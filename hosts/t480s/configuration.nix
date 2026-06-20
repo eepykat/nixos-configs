@@ -19,7 +19,20 @@
 
   # Cellular
   networking.modemmanager.enable = true;
-
+  netkit = {
+    xmm7360 = {
+      enable = true;
+      autoStart = true;
+      package = config.boot.kernelPackages.xmm7360-pci;
+      config = {
+        mycard = {
+          apn = "internet.tele2.lt";
+          nodefaultroute = false;
+          noresolv = true;
+        };
+      };
+    };
+  };
 # Firewall
   networking.firewall = {
     enable = true;
