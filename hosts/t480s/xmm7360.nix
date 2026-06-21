@@ -21,7 +21,8 @@ let
         substituteInPlace xmm7360.c \
           --replace-fail "static int xmm7360_tty_write" "static ssize_t xmm7360_tty_write" \
           --replace-fail "const unsigned char *buf" "const u8 *buf" \
-          --replace-fail "int count" "size_t count"
+          --replace-fail "int count" "size_t count" \
+          --replace-fail "hrtimer_init(&xn->deadline, CLOCK_MONOTONIC, HRTIMER_MODE_REL);" "hrtimer_setup(&xn->deadline, NULL, CLOCK_MONOTONIC, HRTIMER_MODE_REL);"
       '';
 
       makeFlags = [
@@ -37,11 +38,12 @@ let
 
       meta = with lib; {
         description = "PCI driver for Fibocom L850-GL";
-        homepage = "https://github.com/xmm7360/xmm7360-pci";
+        homepage = "https://github.com";
         license = licenses.gpl2Only;
         platforms = platforms.linux;
       };
     }) {};
+
 
   xmm7360-tools = pkgs.python3.withPackages (ps: [
     ps.pyroute2
