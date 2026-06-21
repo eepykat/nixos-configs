@@ -64,7 +64,7 @@ in {
     serviceConfig = {
       Type = "simple";
       ExecStart = ''
-        ${xmm7360-tools}/bin/python3 ${xmm7360-patched.src}/rpc/open_xdatachannel.py --apn internet.tele2.lt
+        ${xmm7360-tools}/bin/python3 -u ${xmm7360-patched.src}/rpc/open_xdatachannel.py --apn internet.tele2.lt --debug
       '';
       Restart = "on-failure";
       RestartSec = "10s";
