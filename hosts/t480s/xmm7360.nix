@@ -4,7 +4,7 @@ let
   xmm7360-patched = config.boot.kernelPackages.callPackage ({ stdenv, fetchFromGitHub, kernel }: 
     stdenv.mkDerivation rec {
       pname = "xmm7360-pci";
-      version = "xmm7360-pci-master";
+      version = "1.0.0";
 
       src = fetchFromGitHub {
         owner = "xmm7360";
@@ -17,16 +17,18 @@ let
       hardeningDisable = [ "pic" ];
       nativeBuildInputs = kernel.moduleBuildDependencies;
 
-      patchPhase = ''
-        substituteInPlace xmm7360.c \
-          --replace "pci_set_dma_mask" "dma_set_mask"
-      '';
+      dontPatch = true;
 
       makeFlags = [
-        "KERNELRELEASE=${kernel.modDirVersion}"
-        "KERNELDIR=${kernel.dev}/lib/modules/${kernel.modDirVersion}/build"
-        "INSTALL_MOD_PATH=$(out)"
+        "KDIR=${kernel.dev}/lib/modules/${kernel.modDirVersion}/build"
       ];
+
+      installPhase = ''
+        runHook preInstall
+        mkdir -p $out/lib/modules/${kernel.modDirVersion}/misc
+        cp xmm7360.ko $out/lib/modules/${kernel.modDirVersion}/misc/
+        runHook postInstall
+      '';
 
       meta = with lib; {
         description = "PCI driver for Fibocom L850-GL";
