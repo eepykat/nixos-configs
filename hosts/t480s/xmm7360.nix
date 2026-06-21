@@ -61,13 +61,13 @@ in {
     after = [ "network.target" ];
     wantedBy = [ "multi-user.target" ];
     
-    script = ''
-      # ${xmm7360-tools}/bin/python3
-    '';
-    
     serviceConfig = {
-      Type = "oneshot";
-      RemainAfterExit = true;
+      Type = "simple";
+      ExecStart = ''
+        ${xmm7360-tools}/bin/python3 ${xmm7360-patched.src}/rpc/open_xdatachannel.py --apn internet.tele2.lt
+      '';
+      Restart = "on-failure";
+      RestartSec = "10s";
     };
   };
 }
