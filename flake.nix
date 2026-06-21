@@ -50,6 +50,14 @@
           {
             nixpkgs.overlays = [ 
               inputs.millennium.overlays.default
+
+              (final: prev: {
+                pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
+                  (python-final: python-prev: {
+                    ConfigArgParse = python-final.configargparse;
+                  })
+                ];
+              })
             ];
             nixpkgs.config.permittedInsecurePackages = [
               "electron-39.8.10"
