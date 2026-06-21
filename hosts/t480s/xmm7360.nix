@@ -17,7 +17,12 @@ let
       hardeningDisable = [ "pic" ];
       nativeBuildInputs = kernel.moduleBuildDependencies;
 
-      dontPatch = true;
+      postPatch = ''
+        substituteInPlace xmm7360.c \
+          --replace-fail "static int xmm7360_tty_write" "static ssize_t xmm7360_tty_write" \
+          --replace-fail "const unsigned char *buf" "const u8 *buf" \
+          --replace-fail "int count" "size_t count"
+      '';
 
       makeFlags = [
         "KDIR=${kernel.dev}/lib/modules/${kernel.modDirVersion}/build"
@@ -32,7 +37,7 @@ let
 
       meta = with lib; {
         description = "PCI driver for Fibocom L850-GL";
-        homepage = "https://github.com";
+        homepage = "https://github.com/xmm7360/xmm7360-pci";
         license = licenses.gpl2Only;
         platforms = platforms.linux;
       };
