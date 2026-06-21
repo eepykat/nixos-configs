@@ -2,6 +2,7 @@
 {
   imports = [
     ./hardware-configuration.nix
+    ./xmm7360.nix
     ../../modules/nixos/desktop.nix
   ];
 
