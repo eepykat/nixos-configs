@@ -10,7 +10,7 @@ let
         owner = "xmm7360";
         repo = "xmm7360-pci";
         rev = "master";
-        sha256 = "sha256-RIn0ZlyDpx28Y7Zp+45I5lE+30eI+S8r7yQd7bU81rQ="; 
+        sha256 = "sha256-wwm9ELALiJrC54azyJ95Rm3pcGLYzhxEe9mcCUvSVKk="; 
       };
 
       sourceRoot = "${src.name}";
