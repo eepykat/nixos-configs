@@ -58,6 +58,18 @@
                   })
                 ];
               })
+
+              (final: prev: {
+                xmm7360-pci = prev.xmm7360-pci.overrideAttrs (oldAttrs: {
+                  version = "xmm7360-pci-nixos-fix";
+                  src = prev.fetchFromGitHub {
+                    owner = "xmm7360";
+                    repo = "xmm7360-pci";
+                    rev = "master"; 
+                    sha256 = "sha256-RIn0ZlyDpx28Y7Zp+45I5lE+30eI+S8r7yQd7bU81rQ=";
+                  };
+                });
+              })
             ];
             nixpkgs.config.permittedInsecurePackages = [
               "electron-39.8.10"
