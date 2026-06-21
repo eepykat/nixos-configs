@@ -7,8 +7,6 @@
     home-manager.url = "github:nix-community/home-manager";
     catppuccin.url = "github:catppuccin/nix";
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
-    std.url = "github:icebox-nix/std";
-    netkit.url = "github:icebox-nix/netkit.nix";
 
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
@@ -29,8 +27,6 @@
     millennium,
     zen-browser,
     noctalia,
-    std,
-    netkit,
   } @inputs:
 
   {
@@ -45,31 +41,10 @@
           home-manager.nixosModules.home-manager
           ./default.nix
           ./hosts/t480s/configuration.nix
-          std.nixosModule
-          netkit.nixosModule
           {
             nixpkgs.overlays = [ 
               inputs.millennium.overlays.default
 
-              (final: prev: {
-                pythonPackagesExtensions = prev.pythonPackagesExtensions ++ [
-                  (python-final: python-prev: {
-                    ConfigArgParse = python-final.configargparse;
-                  })
-                ];
-              })
-
-              (final: prev: {
-                xmm7360-pci = prev.xmm7360-pci.overrideAttrs (oldAttrs: {
-                  version = "xmm7360-pci-nixos-fix";
-                  src = prev.fetchFromGitHub {
-                    owner = "xmm7360";
-                    repo = "xmm7360-pci";
-                    rev = "master"; 
-                    sha256 = "sha256-RIn0ZlyDpx28Y7Zp+45I5lE+30eI+S8r7yQd7bU81rQ=";
-                  };
-                });
-              })
             ];
             nixpkgs.config.permittedInsecurePackages = [
               "electron-39.8.10"
